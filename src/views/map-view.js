@@ -36,6 +36,7 @@ define([
         this._mapboxTileOptions = opts.mapboxTileOptions || {};
         this._mapboxTileOptions.mapId = this._mapboxTileOptions.mapId || 'livefyre.hknm2g26';
         this._mapboxTileOptions.format = this._mapboxTileOptions.format || 'png';
+        this._mapboxTileOptions.accessToken = this._mapboxTileOptions.accessToken || null;
         this._leafletMapOptions = opts.leafletMapOptions || {};
 
         this._overlayViews = [];
@@ -78,13 +79,20 @@ define([
         var self = this;
 
         this.$el.on('imageError.hub', function (e) {
+            var badImageSrc = $(e.target).attr('src');
             var dataPoint;
-            for (var i=0; i < self._dataPoints.length; i++) {
-                if ($(e.target).attr('src') == self._dataPoints[i].getContent().attachments[0].thumbnail_url) {
-                    dataPoint = self._dataPoints[i];
+            self._dataPoints.forEach(function (dataPoint) {
+                if (typeof dataPoint.getContent !== 'function') {
+                    return;
                 }
-            }
-            self._removeDataPoint(dataPoint);
+                var content = dataPoint.getContent() || {};
+                var attachments = content.attachments || [];
+                var firstAttachment = attachments[0] || {};
+                // Remove datapoint of image is broken
+                if (firstAttachment.thumbnail_url === badImageSrc) {
+                    self._removeDataPoint(dataPoint);
+                }
+            });
         });
 
         this.$el.on('addDataPoint.hub', function (e, dataPoint) {
@@ -191,12 +199,25 @@ define([
     };
 
     MapView.prototype._drawMap = function () {
+        var urlTemplate;
+
         this._map = new L.Map(this.el, this._leafletMapOptions).setView(
             this._leafletMapOptions.center || [0,0],
             this._leafletMapOptions.zoom || 2
         );
 
-        new L.TileLayer("http://{s}.tiles.mapbox.com/v3/"+this._mapboxTileOptions.mapId+"/{z}/{x}/{y}."+this._mapboxTileOptions.format)
+        this._map.attributionControl
+            .setPrefix('')
+            .addAttribution("<a href='https://www.openstreetmap.org/copyright' target='_blank'>&copy; OpenStreetMap</a>");
+
+        // No Mapbox accessToken, use Mapbox v3
+        if (this._mapboxTileOptions.accessToken == null) {
+            urlTemplate = "https://{s}.tiles.mapbox.com/v3/"+this._mapboxTileOptions.mapId+"/{z}/{x}/{y}."+this._mapboxTileOptions.format;
+        } else {
+            // Mapbox accessToken supplied, use Mapbox v4
+            urlTemplate = "https://{s}.tiles.mapbox.com/v4/"+this._mapboxTileOptions.mapId+"/{z}/{x}/{y}."+this._mapboxTileOptions.format+"?access_token="+this._mapboxTileOptions.accessToken;
+        }
+        new L.TileLayer(urlTemplate)
             .addTo(this._map);
     };
 
