@@ -1,6 +1,6 @@
 {
   "name": "livefyre-map",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": [
     "./src/main.js"
   ],
@@ -16,7 +16,7 @@
     "leaflet-markercluster": "git://github.com/Leaflet/Leaflet.markercluster.git",
     "leaflet-tilelayer-geojson": "git://github.com/glenrobertson/leaflet-tilelayer-geojson.git",
     "mout": "~0.11.0",
-    "streamhub-sdk": "git://github.com/Livefyre/streamhub-sdk.git#~v2.16",
+    "streamhub-sdk": "git://github.com/Livefyre/streamhub-sdk.git#streamhub-map-protocol-fix",
     "require-css": "~0.1.8",
     "requirejs": "~2.1.5",
     "requirejs-text": "~2.0.5",
