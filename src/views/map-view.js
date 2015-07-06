@@ -6,6 +6,7 @@ define([
     'streamhub-sdk/jquery',
     'streamhub-map/leaflet',
     'streamhub-map/package-attribute',
+    'streamhub-map/views/modal-view',
     'inherits'
 ], function (
     ModalView,
@@ -15,6 +16,7 @@ define([
     $,
     L,
     PackageAttribute,
+    MapModalView,
     inherits
 ) {
     'use strict';
@@ -42,6 +44,8 @@ define([
         this._overlayViews = [];
         this._dataPoints = [];
         this.elId = this.elClass+'-'+this._id;
+
+        opts.modal = new MapModalView();
 
         ContentListView.call(this, opts);
 

@@ -3,3 +3,5 @@ lib/
 node_modules
 dist/
 .DS_Store
+dev/
+docs/
