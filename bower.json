@@ -1,6 +1,6 @@
 {
   "name": "livefyre-map",
-  "version": "3.1.6",
+  "version": "3.2.2",
   "main": [
     "./src/main.js"
   ],
@@ -53,7 +53,7 @@
     "require-less": "deponcss",
     "requirejs": "2.1.9",
     "rework": "~0.21.1",
-    "streamhub-sdk": "~2.31.3",
+    "streamhub-sdk": "~2.32.8",
     "streamhub-share": "0.5.2",
     "streamhub-ui": "0.4.6",
     "view": "~1.4.1"
