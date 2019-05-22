@@ -14,6 +14,7 @@
     "gulp-replace": "0.5.4",
     "gulp-rework": "1.0.3",
     "gulp-util": "*",
+    "http-server": "*",
     "requirejs": "2.1.9",
     "less": "^2.7.2",
     "lfeslint": "git+ssh://git@github.com/Livefyre/lfeslint.git",
