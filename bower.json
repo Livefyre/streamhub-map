@@ -1,6 +1,6 @@
 {
   "name": "livefyre-map",
-  "version": "3.3.3",
+  "version": "3.3.6",
   "main": [
     "./src/main.js"
   ],
@@ -15,9 +15,9 @@
     "leaflet": "git://github.com/Leaflet/Leaflet.git#~0.7.1",
     "leaflet-markercluster": "git://github.com/Leaflet/Leaflet.markercluster.git#0.5.0",
     "leaflet-tilelayer-geojson": "git://github.com/Livefyre/leaflet-tilelayer-geojson.git#1.0",
-    "livefyre-bootstrap": "git://github.com/livefyre/livefyre-bootstrap.git#~1.4.19",
+    "livefyre-bootstrap": "git://github.com/livefyre/livefyre-bootstrap.git#~1.5.7",
     "mout": "~0.11.0",
-    "streamhub-sdk": "git://github.com/Livefyre/streamhub-sdk.git#~2.37.15",
+    "streamhub-sdk": "git://github.com/Livefyre/streamhub-sdk.git#~2.37.19",
     "require-css": "~0.1.8",
     "requirejs": "2.1.5",
     "requirejs-text": "2.0.5",
@@ -29,7 +29,7 @@
     "chai": "1.8.1",
     "chai-jquery": "2.0.0",
     "sinon-chai": "2.4.0",
-    "sinonjs": "1.7.3",
+    "sinonjs": "1.17.1",
     "require-less": "git://github.com/gobengo/require-less#~0.1.1",
     "rework": "git://github.com/gobengo/rework.git#~0.21.1"
   },
@@ -42,20 +42,20 @@
     ]
   },
   "resolutions": {
-    "auth": "~0.2",
+    "auth": "~0.4.2",
     "base64": "~0.4",
     "cajon": "~0.1.12",
     "event-emitter": "0.1.0",
-    "livefyre-bootstrap": "~1.4.19",
+    "livefyre-bootstrap": "~1.5.7",
     "livefyre-theme-styler": "~1.4.0",
     "mout": "0.11.1",
     "require-css": "transformEach2",
     "require-less": "deponcss",
     "requirejs": "2.1.9",
     "rework": "~0.21.1",
-    "streamhub-sdk": "~2.37.15",
-    "streamhub-share": "0.5.2",
-    "streamhub-ui": "0.4.6",
+    "streamhub-sdk": "~2.37.19",
+    "streamhub-share": "0.5.3",
+    "streamhub-ui": "0.4.7",
     "view": "~1.4.1"
   }
 }
